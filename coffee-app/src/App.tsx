@@ -27,13 +27,13 @@ const App: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto p-6 font-sans">
       <h1 className="text-3xl font-bold text-center mb-6">
-        ☕ Coffee Shop Dashboard
+        Coffee Shop Dashboard
       </h1>
 
       <div className="flex justify-center mb-8">
         <input
           type="text"
-          placeholder="Enter coffee name..."
+          placeholder="Enter coffee order details"
           value={coffee}
           onChange={(e) => setCoffee(e.target.value)}
           className="border border-gray-300 rounded px-4 py-2 w-64 mr-4 focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -49,7 +49,7 @@ const App: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Pending Orders */}
         <div className="flex-1 bg-yellow-100 p-6 rounded-lg min-h-[300px]">
-          <h2 className="text-xl font-semibold mb-4">🕒 Pending Orders</h2>
+          <h2 className="text-xl font-semibold mb-4"> Pending Orders</h2>
           {pendingOrders.length === 0 && <p>No pending orders.</p>}
 
           <div className="flex flex-col gap-3">
@@ -66,8 +66,8 @@ const App: React.FC = () => {
                   <span className="font-bold text-lg">{order.name}</span>
                   <span className="text-sm text-gray-700">
                     {order.status === "processing"
-                      ? "⏳ Processing..."
-                      : "🕒 Pending"}
+                      ? " Processing..."
+                      : " Pending"}
                   </span>
                 </div>
 
@@ -77,14 +77,14 @@ const App: React.FC = () => {
                       onClick={() => dispatch(completeOrderAsync(order.id))}
                       className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-sm"
                     >
-                      ✅ Complete
+                       Complete
                     </button>
                   )}
                   <button
                     onClick={() => dispatch(removeOrderAsync(order.id))}
                     className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm"
                   >
-                    ❌ Cancel
+                     Cancel
                   </button>
                 </div>
               </div>
@@ -94,7 +94,7 @@ const App: React.FC = () => {
 
         {/* Completed Orders */}
         <div className="flex-1 bg-green-100 p-6 rounded-lg min-h-[300px]">
-          <h2 className="text-xl font-semibold mb-4">✅ Completed Orders</h2>
+          <h2 className="text-xl font-semibold mb-4"> Completed Orders</h2>
           {completedOrders.length === 0 && <p>No completed orders yet.</p>}
 
           <div className="flex flex-col gap-3">
@@ -108,7 +108,7 @@ const App: React.FC = () => {
                   onClick={() => dispatch(removeOrderAsync(order.id))}
                   className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm"
                 >
-                  ❌ Remove
+                  Remove
                 </button>
               </div>
             ))}
